@@ -1,14 +1,21 @@
 args = commandArgs(trailingOnly=TRUE)
 
-# ten skrypt przyjmuje jeden argument:
-# sciezka do pliku z danymi wejsciowymi
+# ten skrypt przyjmuje dwa argumenty:
+# 1 sciezka do pliku z danymi wejsciowymi oraz
+# 2 sciezka do pliku na dane wyjsciowe
 # Jak przy wywolaniu skryptu nie podano pierwszego argumentu to rzucamy blad
 if (length(args)==0) {
   stop("Sciezka do pliku wejsciowego jest wymagana.", call.=FALSE)
-} 
+} else if (length(args)==1) {
+  # drugi skrypt moze byc default
+  args[2] = ".//output//output.txt"
+}
 
 # wczytanie danych
 my_data <- read.table(args[1], sep = "" , header = T)
+
+start.time <- Sys.time()
+
 
 # zapis danych do pliku - nie jest potrzebny poki co
 # write.table(data, file = args[2], sep = " ", row.names = TRUE)
@@ -56,6 +63,15 @@ jpeg("cph_plot.jpg", width = 1698, height = 754)
 # wiec trzeba go wpakowac po drodze w funkcje survfit()
 autoplot(survfit(cox))
 
-# zamykamy plik do ktorego rysujemy wykres
-dev.off()
 
+
+end.time <- Sys.time()
+time.taken <- as.numeric(end.time - start.time)
+time.taken <- format(round(time.taken, 2), nsmall = 2) # formatowanie do dwoch miejsc po przecinku
+cat("\n\n")
+print(paste0("Dzielenie zbioru danych wejsciowych zajelo: ",time.taken, " sekund(y)"))
+print(paste0("Start wykonania skryptu: ",start.time))
+print(paste0("Koniec wykonania skryptu: ",end.time))
+
+#zamkniecie pliku
+sink()
