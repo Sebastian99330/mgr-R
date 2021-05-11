@@ -71,7 +71,7 @@ summary(cox)
 # otwarcie pliku do ktoego rysujemy wykres z regresji coxa
 jpeg(CPH_file_path, width = 1698, height = 754)
 
-# funkcja autoplot() nie przyjmuje bezposrednio obiektu cox 
+# funkcja autoplot() nie przyjmuje bezposrednio obiektu cox
 # czyli obiektu, ktory zwraca funkcja coxph,
 # wiec trzeba go wpakowac po drodze w funkcje survfit()
 autoplot(survfit(cox))
