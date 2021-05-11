@@ -63,8 +63,11 @@ for(numer in 1:ilosc_zbiorow){
   # potem ta liste zapisujemy do pliku
   # paste0 skleja string, normalnie jak w javie + konkatenacja
   # write.csv(df[wybrane_idx, ], paste0("zbior_", numer,".csv"), row.names = F)
-  delimiter=", "
-  write.csv(df[wybrane_idx, ], paste0("Split-data\\zbior_", numer,".csv") ,row.names = F)
+  
+  #write.csv(df[wybrane_idx, ], paste0("Split-data\\zbior_", numer,".csv") ,row.names = F) # to dziala
+  write.table(df[wybrane_idx, ], file = paste0("zbior_", numer,".csv"), 
+              append = TRUE, sep = "\t", row.names=FALSE, col.names=TRUE, quote=FALSE)
+  
 }
 
 end.time <- Sys.time()
