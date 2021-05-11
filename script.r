@@ -24,12 +24,6 @@ my_data <- read.table(args[1], sep = "" , header = T)
 
 start.time <- Sys.time()
 
-# Usuniecie katalogu na output jesli istnieje
-unlink("output", recursive = TRUE)
-
-# utworzenie katalogu na nowe pliki z danymi wejsciowymi
-dir.create(file.path("output"), showWarnings = FALSE)
-
 
 # zapis danych do pliku - nie jest potrzebny poki co
 # write.table(data, file = output_txt, sep = " ", row.names = TRUE)
