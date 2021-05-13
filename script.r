@@ -11,7 +11,7 @@ if (length(args)==0) {
   args[2] = ".//output//output.txt"
   args[3] = ".//output//KM_plot.jpg"
   args[4] = ".//output//cph_plot.jpg"
-  # args[6] = ","
+  args[6] = ","
 }
 
 nazwa_folderu_output = args[5]
@@ -20,11 +20,11 @@ nazwa_folderu_output = args[5]
 output_txt = paste0(".//",nazwa_folderu_output,"//",args[2])
 KM_file_path = paste0(".//",nazwa_folderu_output,"//",args[3])
 CPH_file_path = paste0(".//",nazwa_folderu_output,"//",args[4])
-# my_separator = args[6]
+my_separator = args[6]
 
 # wczytanie danych
-# my_data <- read.table(args[1], sep = my_separator , header = T)
-my_data <- read.table(args[1], sep = "" , header = T)
+my_data <- read.table(args[1], sep = my_separator , header = T)
+#my_data <- read.table(args[1], sep = "" , header = T)
 
 start.time <- Sys.time()
 
