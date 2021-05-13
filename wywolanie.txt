@@ -1,0 +1,29 @@
+
+script.R - sekwencyjnie
+Argumenty:
+plik wejsciowy = args[1]
+output_txt = args[2]
+KM_file_path = args[3]
+CPH_file_path = args[4]
+nazwa folderu output = args[5]
+
+Wywolanie sekwencyjnego:
+Rscript --vanilla script.r prostate_cancer.txt output.txt km-seq.jpg cph-seq.jpg output-seq
+Działa jak jest utworzony folder output-seq.
+
+Wywolanie dzielenia danych:
+Rscript --vanilla dzielenie-zbioru.R prostate_cancer.txt
+otrzymujemy nowy folder Split-data z 4 plikami z nowymi danymi wejsciowymi. Te dane wejsciowe sa oddzielone przecinkiem.
+
+Tworzenie folderow na output z obliczen:
+Rscript --vanilla utworz-output.r output-2
+
+Wywolanie jednego z rownoleglych:
+Rscript --vanilla script-przecinek.r "Split-data\\zbior_3.csv" output-3.txt km-3.jpg cph-3.jpg output-3
+Działa ale musi być utworzony pusty folder output-3
+
+Rscript --vanilla script-przecinek.r "Split-data\\zbior_2.csv" output-2.txt km-2.jpg cph-2.jpg output-2
+
+
+
+Dla dużego zbioru danych:

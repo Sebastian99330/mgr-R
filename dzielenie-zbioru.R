@@ -64,9 +64,10 @@ for(numer in 1:ilosc_zbiorow){
   # paste0 skleja string, normalnie jak w javie + konkatenacja
   # write.csv(df[wybrane_idx, ], paste0("zbior_", numer,".csv"), row.names = F)
   
-  #write.csv(df[wybrane_idx, ], paste0("Split-data\\zbior_", numer,".csv") ,row.names = F) # to dziala
-  write.table(df[wybrane_idx, ], file = paste0("zbior_", numer,".csv"), 
-              append = TRUE, sep = "\t", row.names=FALSE, col.names=TRUE, quote=FALSE)
+  write.csv(df[wybrane_idx, ], paste0("Split-data\\zbior_", numer,".csv"), row.names = F) # to dziala
+  ?write.csv
+  #write.table(df[wybrane_idx, ], file = paste0("zbior_", numer,".csv"),
+              #append = TRUE, sep = "\t", row.names=FALSE, col.names=TRUE, quote=FALSE)
   
 }
 
