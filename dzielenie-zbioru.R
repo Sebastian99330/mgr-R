@@ -1,7 +1,8 @@
 args = commandArgs(trailingOnly = TRUE)
 
-# ten skrypt przyjmuje jeden argument:
-# sciezka do pliku z danymi wejsciowymi
+# ten skrypt przyjmuje dwa argumenty:
+# 1 sciezka do pliku z danymi wejsciowymi
+# 2 ilosc watkow (na ile czesci podzielic zbior danych wejsciowych)
 # Jak przy wywolaniu skryptu nie podano pierwszego argumentu to rzucamy blad
 if (length(args)==0) {
   stop("Sciezka do pliku wejsciowego jest wymagana.", call.=FALSE)
@@ -12,7 +13,7 @@ df <- read.table(args[1], sep = "" , header = T)
 #df <- read.table("prostate_cancer.txt", sep = "" , header = T)
 
 licza_wierszy = nrow(df)
-ilosc_zbiorow = 4
+ilosc_zbiorow = args[2]
 
 # trzeba dzielic zbior na mozliwie rowne czesci - ale nie od gory do dolu dzielac np. na 4,
 # tylko tak bardziej losowo, powyciagac wartosci z roznych wierszy i przyporzadkowac do roznych czesci
