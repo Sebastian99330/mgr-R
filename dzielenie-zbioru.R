@@ -1,19 +1,26 @@
 args = commandArgs(trailingOnly = TRUE)
 
-# ten skrypt przyjmuje dwa argumenty:
+# ten skrypt przyjmuje argumenty:
 # 1 sciezka do pliku z danymi wejsciowymi
 # 2 ilosc watkow (na ile czesci podzielic zbior danych wejsciowych)
+# 3 czesc nazwy pliku wyjsciowego (np zbior_ , ktore dalej bedzie uzupelniony w petli zeby bylo np. zbior_3.csv)
 # Jak przy wywolaniu skryptu nie podano pierwszego argumentu to rzucamy blad
 if (length(args)==0) {
   stop("Sciezka do pliku wejsciowego jest wymagana.", call.=FALSE)
 } 
 
+input_sciezka <- args[1]
+ilosc_zbiorow <- args[2]
+plik_output <- args[3]
+
+
+
 # wczytanie danych
-df <- read.table(args[1], sep = "" , header = T)
+df <- read.table(input_sciezka, sep = "" , header = T)
 #df <- read.table("prostate_cancer.txt", sep = "" , header = T)
 
 licza_wierszy = nrow(df)
-ilosc_zbiorow = args[2]
+#ilosc_zbiorow = args[2] #zakomentowane bo ta linijka jest na gorze tego skryptu
 
 # trzeba dzielic zbior na mozliwie rowne czesci - ale nie od gory do dolu dzielac np. na 4,
 # tylko tak bardziej losowo, powyciagac wartosci z roznych wierszy i przyporzadkowac do roznych czesci
@@ -65,7 +72,7 @@ for(numer in 1:ilosc_zbiorow){
   # paste0 skleja string, normalnie jak w javie + konkatenacja
   # write.csv(df[wybrane_idx, ], paste0("zbior_", numer,".csv"), row.names = F)
   
-  write.csv(df[wybrane_idx, ], paste0("Split-data\\zbior_", numer,".csv"), row.names = F) # to dziala
+  write.csv(df[wybrane_idx, ], paste0(plik_output, numer,".csv"), row.names = F) # to dziala
   ?write.csv
   #write.table(df[wybrane_idx, ], file = paste0("zbior_", numer,".csv"),
               #append = TRUE, sep = "\t", row.names=FALSE, col.names=TRUE, quote=FALSE)

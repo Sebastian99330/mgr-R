@@ -9,6 +9,7 @@ nazwa folderu output = args[5]
 
 Tworzenie folderow na output z obliczen:
 Rscript --vanilla utworz-output.r output-seq
+Rscript --vanilla utworz-output.r output-1
 
 Wywolanie sekwencyjnego:
 Rscript --vanilla script.r prostate_cancer.txt output.txt km-seq.jpg cph-seq.jpg output-seq ""
