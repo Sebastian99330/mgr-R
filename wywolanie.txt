@@ -16,7 +16,7 @@ Rscript --vanilla script.r prostate_cancer.txt output.txt km-seq.jpg cph-seq.jpg
 Działa jak jest utworzony folder output-seq.
 
 Wywolanie dzielenia danych:
-Rscript --vanilla dzielenie-zbioru.R prostate_cancer.txt
+Rscript --vanilla dzielenie-zbioru.R prost_cancer_mln.csv 7 Split-data\\zbior_
 otrzymujemy nowy folder Split-data z 4 plikami z nowymi danymi wejsciowymi. Te dane wejsciowe sa oddzielone przecinkiem.
 
 -- tu trzeba znowu wywolac utworzenie folderu np output-1
